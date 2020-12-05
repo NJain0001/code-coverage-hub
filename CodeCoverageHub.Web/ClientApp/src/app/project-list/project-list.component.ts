@@ -1,20 +1,19 @@
-import { Component, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+  selector: 'app-project-list',
+  templateUrl: './project-list.component.html',
+  styleUrls: ['./project-list.component.css']
 })
-export class AppComponent {
-  title = 'app';
+export class ProjectListComponent {
+
   public codeCoverageResult: string;
 
-  /**
-   *
-   */
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<string>(baseUrl + 'api/CodeCoverage').subscribe(result => {
       this.codeCoverageResult = result;
     }, error => console.error(error));
-  }  
+  }
+
 }
