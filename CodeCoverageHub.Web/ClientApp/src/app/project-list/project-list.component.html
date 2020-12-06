@@ -1,7 +1,22 @@
-<h1 id="tableLabel">Code Coverage Parser</h1>
+<h1 class="tableLabel">Projects</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Project Name</th>
+            <th scope="col">Repository</th>
+            <th scope="col">Coverage Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let project of projectList">
+            <td>{{project.name}}</td>
+            <td><a href="{{project.repoLink}}" target="_blank">Repo Link</a></td>
+            <td>
+                <button class="btn btn-primary" (click)="getCoverageDetails(project.coverageFilePath)">Coverage Detail</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-<p *ngIf="!codeCoverageResult"><em>Loading...</em></p>
-
-<pre>{{codeCoverageResult | json}}</pre>
+<pre *ngIf="coverageResult$ | async as coverageResult">{{coverageResult | json }}</pre>

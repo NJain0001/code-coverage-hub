@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using Microsoft.AspNetCore.Mvc;
 using Palmmedia.ReportGenerator.Core.Parser;
 using Palmmedia.ReportGenerator.Core.Parser.Filtering;
+using CodeCoverageHub.Models;
 
 namespace CodeCoverageHub.Api {
 
@@ -13,6 +14,22 @@ namespace CodeCoverageHub.Api {
     public class CodeCoverageController : ControllerBase
     {
         [HttpGet]
+        [Route("getProjects")]
+        public IActionResult GetProjects()
+        {
+            var projectList = new List<Project>()
+            {
+                new Project()
+                {
+                    Name = "Candlestick-Analyzer",
+                    RepoLink = "",
+                    CoverageFilePath = ""
+                }
+            };
+            return Ok(projectList);
+        }
+        [HttpGet]
+        [Route("getCoverageDetails")]
         public IActionResult GetCoverageDetails()
         {
             var parser = new CoverageReportParser(1, 1, new List<string>(), 
@@ -22,7 +39,7 @@ namespace CodeCoverageHub.Api {
             
             IReadOnlyCollection<string> testCoverageFilePath = new Collection<string>()
             {
-                @"C:\Workspace\TradingBot\candlestick-analyzer\StockAnalyzerService.Test\TestResults\7eac1a6c-e384-4c08-a9f4-8d3430dd42ce\coverage.cobertura.xml"
+                ""
             };
             var parserResult = parser.ParseFiles(testCoverageFilePath);
 
