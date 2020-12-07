@@ -13,10 +13,8 @@
             <td>{{project.name}}</td>
             <td><a href="{{project.repoLink}}" target="_blank">Repo Link</a></td>
             <td>
-                <button class="btn btn-primary" (click)="getCoverageDetails(project.coverageFilePath)">Coverage Detail</button>
+                <button class="btn btn-primary" (click)="navigateToCoverageDetail(project)">Coverage Detail</button>
             </td>
         </tr>
     </tbody>
 </table>
-
-<pre *ngIf="coverageResult$ | async as coverageResult">{{coverageResult | json }}</pre>

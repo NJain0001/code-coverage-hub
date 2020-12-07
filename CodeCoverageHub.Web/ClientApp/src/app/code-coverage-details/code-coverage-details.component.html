@@ -1,0 +1,6 @@
+<pre *ngIf="coverageResult$ | async as coverageResult">{{coverageResult | json }}</pre>
+
+<p *ngIf="!isProjectDefined()">
+    There isn't a project defined to get the details. 
+    Please navigate back to the home page and select a project.
+</p>

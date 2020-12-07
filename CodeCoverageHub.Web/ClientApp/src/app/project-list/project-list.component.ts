@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Project } from '../shared/project.model';
 import { Observable } from 'rxjs';
 
@@ -13,7 +14,9 @@ export class ProjectListComponent implements OnInit {
   public projectList: Project[];
   public coverageResult$: Observable<string>;
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {}
+  constructor(private http: HttpClient
+            , private router: Router
+            , @Inject('BASE_URL') private baseUrl: string) {}
 
   ngOnInit() {
     this.getProjectList();
@@ -25,8 +28,8 @@ export class ProjectListComponent implements OnInit {
     }, error => console.error(error));
   }
 
-  getCoverageDetails(filePath: string) {
-    this.coverageResult$ = this.http.get<string>(this.baseUrl + 'api/CodeCoverage/getCoverageDetails');
+  navigateToCoverageDetail(project: Project) {
+    this.router.navigate(['code-coverage-detail'], { state: { data: project }});
   }
 
 }
