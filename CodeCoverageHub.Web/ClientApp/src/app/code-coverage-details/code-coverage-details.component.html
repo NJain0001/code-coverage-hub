@@ -1,6 +1,51 @@
-<pre *ngIf="coverageResult$ | async as coverageResult">{{coverageResult | json }}</pre>
-
-<p *ngIf="!isProjectDefined()">
+<!-- <p *ngIf="!isProjectDefined()">
     There isn't a project defined to get the details. 
     Please navigate back to the home page and select a project.
-</p>
+</p> -->
+
+<section class="project-detail-section">
+
+    <div class="project-summary">
+        <h2>Summary</h2>
+        <div class="properties-flex">
+            <div class="property-card">
+                <label>Assembly Name</label>
+                <span>StockAnalyzerService</span>
+            </div>
+            <div class="property-card">
+                <label>Parser Used</label>
+                <span>CoberturaParser</span>
+            </div>
+            <!-- <div class="property-card">
+                <label>Covered Lines</label>
+                <span>203</span>
+            </div>
+            <div class="property-card">
+                <label>Uncovered Lines</label>
+                <span>126</span>
+            </div> -->
+            <div class="property-card">
+                <label>Line Coverage</label>
+                <span>61.7% (203 of 329)</span>
+            </div>
+            <!-- <div class="property-card">
+                <label>Covered Branches</label>
+                <span>56</span>
+            </div>
+            <div class="property-card">
+                <label>Uncovered Branches</label>
+                <span>24</span>
+            </div> -->
+            <div class="property-card">
+                <label>Branch Coverage</label>
+                <span>70% (56 of 80)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-coverage">
+        <h2>Coverage</h2>
+    </div>
+</section>
+
+<pre *ngIf="coverageResult$ | async as coverageResult">{{coverageResult | json }}</pre>

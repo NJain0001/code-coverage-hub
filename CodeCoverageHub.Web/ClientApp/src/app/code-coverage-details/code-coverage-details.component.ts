@@ -20,9 +20,10 @@ export class CodeCoverageDetailsComponent implements OnInit {
   ngOnInit() {
     this.project = window.history.state.data;
     // console.log(this.activeRoute.snapshot);
-    if (this.isProjectDefined()) {
-      this.getCoverageDetails(this.project.coverageFilePath);
-    }
+    // if (this.isProjectDefined()) {
+      // this.getCoverageDetails(this.project.coverageFilePath);
+      this.getCoverageDetails('');
+    // }
   }
 
 

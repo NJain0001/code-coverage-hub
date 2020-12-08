@@ -1,0 +1,47 @@
+h2 {
+    margin-bottom: .5em;
+}
+.project-detail-section {
+    display: grid;
+    row-gap: 4rem;
+    grid-template-areas: 
+        "summary"
+        "coverage";
+}
+
+.project-summary {
+    grid-area: "summary";
+}
+
+.project-coverage {
+    grid-area: "coverage";
+}
+
+.project-summary, .project-coverage {
+    border: black solid 2px;
+    padding: .5em 1em;
+}
+
+.properties-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: -10px;
+}
+.properties-flex>* {
+    margin: 10px;
+}
+
+.property-card {
+    border: red solid 1px;
+    text-align: center;
+    margin: -10px;
+    width: 200px;
+    padding: 1em .5em;
+    border-radius: 20px;
+}
+
+.property-card label {
+    display: block;
+    font-weight: bold;
+}
